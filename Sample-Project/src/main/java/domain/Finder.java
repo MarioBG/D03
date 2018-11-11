@@ -4,6 +4,7 @@ package domain;
 import java.sql.Date;
 import java.util.Collection;
 
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 
 public class Finder extends DomainEntity {
@@ -93,6 +94,7 @@ public class Finder extends DomainEntity {
 	}
 
 	@Valid
+	@OneToMany
 	public Collection<FixUpTask> getFixUpTasks() {
 		return this.fixUpTasks;
 	}

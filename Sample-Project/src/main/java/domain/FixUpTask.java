@@ -4,6 +4,8 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -95,6 +97,7 @@ public class FixUpTask extends DomainEntity {
 
 
 	@Valid
+	@ManyToOne(optional = false)
 	public Category getCategory() {
 		return this.category;
 	}
@@ -105,6 +108,7 @@ public class FixUpTask extends DomainEntity {
 
 	@NotNull
 	@Valid
+	@ManyToOne(optional = false)
 	public Warranty getWarranty() {
 		return this.warranty;
 	}
@@ -114,6 +118,7 @@ public class FixUpTask extends DomainEntity {
 	}
 
 	@Valid
+	@OneToMany
 	public Collection<Application> getApplications() {
 		return this.applications;
 	}
@@ -123,6 +128,7 @@ public class FixUpTask extends DomainEntity {
 	}
 
 	@Valid
+	@OneToMany
 	public Collection<Phase> getPhase() {
 		return this.phase;
 	}

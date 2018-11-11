@@ -3,6 +3,7 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -16,6 +17,7 @@ public class Customer extends Actor {
 
 	@Valid
 	@NotNull
+	@OneToMany
 	public Collection<FixUpTask> getFixUpTasks() {
 		return this.fixUpTasks;
 	}
@@ -26,6 +28,7 @@ public class Customer extends Actor {
 
 	@Valid
 	@NotNull
+	@OneToMany
 	public Collection<Endorsement> getEndorsements() {
 		return this.endorsements;
 	}

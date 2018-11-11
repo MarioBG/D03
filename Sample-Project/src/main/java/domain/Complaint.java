@@ -4,6 +4,7 @@ package domain;
 import java.sql.Date;
 import java.util.Collection;
 
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -65,6 +66,7 @@ public class Complaint extends DomainEntity {
 
 	@NotNull
 	@Valid
+	@ManyToOne(optional = false)
 	public Customer getCustomer() {
 		return this.customer;
 	}

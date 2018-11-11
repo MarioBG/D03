@@ -3,6 +3,8 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -14,6 +16,7 @@ import org.hibernate.validator.constraints.URL;
 import security.UserAccount;
 
 @Entity
+@Access(AccessType.PROPERTY)
 public abstract class Actor extends DomainEntity {
 
 	private String	name;

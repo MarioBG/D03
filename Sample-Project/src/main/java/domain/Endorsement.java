@@ -3,6 +3,7 @@ package domain;
 
 import java.util.Date;
 
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
@@ -37,6 +38,7 @@ public class Endorsement extends DomainEntity {
 
 
 	@Valid
+	@ManyToOne(optional = true)
 	public Customer getCustomer() {
 		return this.customer;
 	}
@@ -46,6 +48,7 @@ public class Endorsement extends DomainEntity {
 	}
 
 	@Valid
+	@ManyToOne(optional = true)
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}

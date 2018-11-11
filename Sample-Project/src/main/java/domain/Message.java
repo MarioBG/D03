@@ -4,6 +4,7 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -67,6 +68,7 @@ public class Message extends DomainEntity {
 
 	@NotNull
 	@Valid
+	@ManyToMany
 	public Collection<Actor> getRecipients() {
 		return this.recipients;
 	}
@@ -77,6 +79,7 @@ public class Message extends DomainEntity {
 
 	@NotNull
 	@Valid
+	@ManyToOne(optional = false)
 	public Actor getSender() {
 		return this.sender;
 	}

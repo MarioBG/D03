@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
@@ -62,6 +63,7 @@ public class Tutorial extends DomainEntity {
 
 
 	@Valid
+	@OneToMany
 	public List<Section> getSections() {
 		return this.sections;
 	}

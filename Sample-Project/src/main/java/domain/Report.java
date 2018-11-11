@@ -4,6 +4,7 @@ package domain;
 import java.sql.Date;
 import java.util.Collection;
 
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
@@ -52,6 +53,7 @@ public class Report extends DomainEntity {
 
 
 	@Valid
+	@OneToMany
 	public Collection<Complaint> getComplaints() {
 		return this.complaints;
 	}
@@ -61,6 +63,7 @@ public class Report extends DomainEntity {
 	}
 
 	@Valid
+	@OneToMany
 	public Collection<Note> getNotes() {
 		return this.notes;
 	}

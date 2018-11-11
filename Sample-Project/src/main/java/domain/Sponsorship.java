@@ -1,6 +1,7 @@
 
 package domain;
 
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -51,6 +52,7 @@ public class Sponsorship extends DomainEntity {
 
 
 	@Valid
+	@ManyToOne(optional = false)
 	public Tutorial getTutorial() {
 		return this.tutorial;
 	}

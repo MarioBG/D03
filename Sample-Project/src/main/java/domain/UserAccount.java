@@ -3,6 +3,7 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.ElementCollection;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -45,6 +46,7 @@ public class UserAccount extends DomainEntity {
 
 	@NotNull
 	@Valid
+	@ElementCollection
 	public Collection<Authority> getAuthority() {
 		return this.authority;
 	}

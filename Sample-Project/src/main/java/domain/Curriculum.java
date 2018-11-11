@@ -3,6 +3,8 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -36,6 +38,7 @@ public class Curriculum extends DomainEntity {
 
 	@NotNull
 	@Valid
+	@OneToOne
 	public PersonalRecord getPersonalRecord() {
 		return this.personalRecord;
 	}
@@ -45,6 +48,7 @@ public class Curriculum extends DomainEntity {
 	};
 
 	@Valid
+	@OneToMany
 	public Collection<MiscellaneousRecord> getMiscellaneousRecord() {
 		return this.miscellaneousRecord;
 	}
@@ -54,6 +58,7 @@ public class Curriculum extends DomainEntity {
 	}
 
 	@Valid
+	@OneToMany
 	public Collection<EndorserRecord> getEndorserRecord() {
 		return this.endorserRecord;
 	}
@@ -63,6 +68,7 @@ public class Curriculum extends DomainEntity {
 	}
 
 	@Valid
+	@OneToMany
 	public Collection<EducationRecord> getEducationRecord() {
 		return this.educationRecord;
 	}
@@ -72,6 +78,7 @@ public class Curriculum extends DomainEntity {
 	}
 
 	@Valid
+	@OneToMany
 	public Collection<ProfessionalRecord> getProfessionalRecord() {
 		return this.professionalRecord;
 	}

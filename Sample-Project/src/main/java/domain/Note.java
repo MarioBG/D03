@@ -3,6 +3,7 @@ package domain;
 
 import java.sql.Date;
 
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -47,6 +48,7 @@ public class Note extends DomainEntity {
 
 	@NotNull
 	@Valid
+	@ManyToOne(optional = false)
 	public Actor getActor() {
 		return this.actor;
 	}

@@ -3,6 +3,7 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -30,6 +31,7 @@ public class HandyWorker extends Actor {
 
 
 	@Valid
+	@OneToMany
 	public Collection<Application> getApplications() {
 		return this.applications;
 	}
@@ -39,6 +41,7 @@ public class HandyWorker extends Actor {
 	}
 
 	@Valid
+	@OneToMany
 	public Collection<Tutorial> getTutorials() {
 		return this.tutorials;
 	}
@@ -48,6 +51,7 @@ public class HandyWorker extends Actor {
 	}
 
 	@Valid
+	@OneToMany
 	public Collection<Endorsement> getEndorsements() {
 		return this.endorsements;
 	}

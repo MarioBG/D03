@@ -3,10 +3,10 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
@@ -99,6 +99,7 @@ public class Configuration extends DomainEntity {
 
 
 	@Valid
+	@OneToMany
 	public Collection<WelcomeMessage> getWelcomeMessage() {
 		return this.welcomeMessage;
 	}

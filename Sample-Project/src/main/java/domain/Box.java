@@ -3,6 +3,7 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -38,6 +39,7 @@ public class Box extends DomainEntity {
 
 
 	@Valid
+	@OneToMany
 	public Collection<Message> getMessages() {
 		return this.messages;
 	}
@@ -47,6 +49,7 @@ public class Box extends DomainEntity {
 	}
 
 	@Valid
+	@OneToMany
 	public Collection<Box> getChildren() {
 		return this.children;
 	}

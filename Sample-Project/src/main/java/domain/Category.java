@@ -3,6 +3,7 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -28,6 +29,7 @@ public class Category extends DomainEntity {
 
 
 	@Valid
+	@OneToMany
 	public Collection<Category> getChildCategories() {
 		return this.childCategories;
 	}

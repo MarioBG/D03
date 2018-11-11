@@ -1,13 +1,18 @@
 
 package domain;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
-public class CreditCard extends DomainEntity {
+@Embeddable
+@Access(AccessType.PROPERTY)
+public class CreditCard {
 
 	private String	holderName;
 	private String	brandName;
