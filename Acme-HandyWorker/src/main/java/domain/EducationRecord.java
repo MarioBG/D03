@@ -1,15 +1,18 @@
 
 package domain;
 
-import java.sql.Date;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class EducationRecord extends DomainEntity {
@@ -41,15 +44,17 @@ public class EducationRecord extends DomainEntity {
 	}
 
 	@ElementCollection(targetClass = String.class)
-	public Collection<String> getComment() {
+	public Collection<String> getComments() {
 		return this.comments;
 	}
 
-	public void setComment(final Collection<String> comment) {
-		this.comments = comment;
+	public void setComments(final Collection<String> comments) {
+		this.comments = comments;
 	}
 
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -58,6 +63,8 @@ public class EducationRecord extends DomainEntity {
 		this.startDate = startDate;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public Date getEndDate() {
 		return this.endDate;
 	}

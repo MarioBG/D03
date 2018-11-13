@@ -15,7 +15,7 @@ public class EndorserRecord extends DomainEntity {
 
 	private String				fullName;
 	private String				email;
-	private String				forNumber;
+	private String				phoneNumber;
 	private String				linkedInProfileURL;
 	private Collection<String>	comments;
 
@@ -39,12 +39,12 @@ public class EndorserRecord extends DomainEntity {
 	}
 
 	@NotBlank
-	public String getForNumber() {
-		return this.forNumber;
+	public String getPhoneNumber() {
+		return this.phoneNumber;
 	}
 
-	public void setForNumber(final String forNumber) {
-		this.forNumber = forNumber;
+	public void setPhoneNumber(final String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	@URL

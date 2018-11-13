@@ -13,7 +13,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.URL;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -44,7 +43,6 @@ public class Report extends DomainEntity {
 		this.description = description;
 	}
 
-	@URL
 	@ElementCollection(targetClass = String.class)
 	public Collection<String> getAttachments() {
 		return this.attachments;

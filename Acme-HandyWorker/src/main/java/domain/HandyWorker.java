@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -30,6 +31,7 @@ public class HandyWorker extends Actor {
 	private Collection<Application>	applications;
 	private Collection<Tutorial>	tutorials;
 	private Collection<Endorsement>	endorsements;
+	private Curriculum				curriculum;
 
 
 	@Valid
@@ -64,6 +66,16 @@ public class HandyWorker extends Actor {
 
 	public void setApplications(final Collection<Application> applications) {
 		this.applications = applications;
+	}
+
+	@Valid
+	@OneToOne(optional = true)
+	public Curriculum getCurriculum() {
+		return this.curriculum;
+	}
+
+	public void setCurriculum(final Curriculum curriculum) {
+		this.curriculum = curriculum;
 	}
 
 }

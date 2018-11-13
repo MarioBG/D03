@@ -19,7 +19,7 @@ public class CreditCard {
 	private String	number;
 	private int		expirationMonth;
 	private int		expirationYear;
-	private int		cvv;
+	private int		cVV;
 
 
 	@NotBlank
@@ -59,6 +59,7 @@ public class CreditCard {
 		this.expirationMonth = expirationMonth;
 	}
 
+	@Range(min = 18, max = 99)
 	public int getExpirationYear() {
 		return this.expirationYear;
 	}
@@ -68,12 +69,12 @@ public class CreditCard {
 	}
 
 	@Range(min = 100, max = 999)
-	public int getCvv() {
-		return this.cvv;
+	public int getCVV() {
+		return this.cVV;
 	}
 
-	public void setCvv(final int cvv) {
-		this.cvv = cvv;
+	public void setCVV(final int cVV) {
+		this.cVV = cVV;
 	}
 
 }

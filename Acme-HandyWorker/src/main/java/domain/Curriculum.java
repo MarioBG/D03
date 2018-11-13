@@ -3,12 +3,12 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -18,7 +18,7 @@ public class Curriculum extends DomainEntity {
 	private String	ticker;
 
 
-	@Pattern(regexp = "^d{6}-[A-Z0-9]{6}$")
+	@Column(unique = true)
 	@NotBlank
 	public String getTicker() {
 		return this.ticker;
@@ -32,10 +32,10 @@ public class Curriculum extends DomainEntity {
 	// Relationships ----------------------------------------------------------
 
 	private PersonalRecord					personalRecord;
-	private Collection<MiscellaneousRecord>	miscellaneousRecord;
-	private Collection<EndorserRecord>		endorserRecord;
-	private Collection<EducationRecord>		educationRecord;
-	private Collection<ProfessionalRecord>	professionalRecord;
+	private Collection<MiscellaneousRecord>	miscellaneousRecords;
+	private Collection<EndorserRecord>		endorserRecords;
+	private Collection<EducationRecord>		educationRecords;
+	private Collection<ProfessionalRecord>	professionalRecords;
 
 
 	@NotNull
@@ -51,42 +51,42 @@ public class Curriculum extends DomainEntity {
 
 	@Valid
 	@OneToMany
-	public Collection<MiscellaneousRecord> getMiscellaneousRecord() {
-		return this.miscellaneousRecord;
+	public Collection<MiscellaneousRecord> getMiscellaneousRecords() {
+		return this.miscellaneousRecords;
 	}
 
-	public void setMiscellaneousRecord(final Collection<MiscellaneousRecord> miscellaneousRecord) {
-		this.miscellaneousRecord = miscellaneousRecord;
-	}
-
-	@Valid
-	@OneToMany
-	public Collection<EndorserRecord> getEndorserRecord() {
-		return this.endorserRecord;
-	}
-
-	public void setEndorserRecord(final Collection<EndorserRecord> endorserRecord) {
-		this.endorserRecord = endorserRecord;
+	public void setMiscellaneousRecords(final Collection<MiscellaneousRecord> miscellaneousRecords) {
+		this.miscellaneousRecords = miscellaneousRecords;
 	}
 
 	@Valid
 	@OneToMany
-	public Collection<EducationRecord> getEducationRecord() {
-		return this.educationRecord;
+	public Collection<EndorserRecord> getEndorserRecords() {
+		return this.endorserRecords;
 	}
 
-	public void setEducationRecord(final Collection<EducationRecord> educationRecord) {
-		this.educationRecord = educationRecord;
+	public void setEndorserRecords(final Collection<EndorserRecord> endorserRecords) {
+		this.endorserRecords = endorserRecords;
 	}
 
 	@Valid
 	@OneToMany
-	public Collection<ProfessionalRecord> getProfessionalRecord() {
-		return this.professionalRecord;
+	public Collection<EducationRecord> getEducationRecords() {
+		return this.educationRecords;
 	}
 
-	public void setProfessionalRecord(final Collection<ProfessionalRecord> professionalRecord) {
-		this.professionalRecord = professionalRecord;
+	public void setEducationRecords(final Collection<EducationRecord> educationRecords) {
+		this.educationRecords = educationRecords;
+	}
+
+	@Valid
+	@OneToMany
+	public Collection<ProfessionalRecord> getProfessionalRecords() {
+		return this.professionalRecords;
+	}
+
+	public void setProfessionalRecords(final Collection<ProfessionalRecord> professionalRecords) {
+		this.professionalRecords = professionalRecords;
 	}
 
 }

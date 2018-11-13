@@ -1,21 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 
- * PopulateDatabase.xml
- *
- * Copyright (C) 2018 Universidad de Sevilla
- * 
- * The use of this project is hereby constrained to the conditions of the 
- * TDG Licence, a copy of which you may download from 
- * http://www.tdg-seville.info/License.html
- -->
+<!-- * PopulateDatabase.xml * * Copyright (C) 2018 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	">
-	
+
+	<!-- Credit Card -->
+
+	<bean id="creditCard0" class="domain.CreditCard">
+		<property name="holderName" value="holderName" />
+		<property name="brandName" value="brandName" />
+		<property name="number" value="4560272364137447" />
+		<property name="expirationMonth" value="12" />
+		<property name="expirationYear" value="20" />
+		<property name="cVV" value="123">
+		</property>
+	</bean>
+
+	<!-- Welcome Message -->
+
+	<bean id="welcomeMessage0" class="domain.WelcomeMessage">
+		<property name="languageCode" value="lenguageCode" />
+		<property name="content" value="welcomeMessageContent" >
+		</property>
+	</bean>
+
+	<!-- Configuration -->
+
+	<bean id="configuration0" class="domain.Configuration">
+		<property name="bannerURL"
+			value="https://www.vgr.com/wp-content/uploads/2018/11/Red-Dead-Redemption-2-Download-Time-600x300.jpg" />
+		<property name="spamWords">
+			<list>
+				<value>sex</value>
+				<value>viagra</value>
+				<value>cialis</value>
+				<value>one million</value>
+				<value>you’ve been selected</value>
+				<value>Nigeria</value>
+				<value>sexo</value>
+				<value>un millón</value>
+				<value>ha sido seleccionado</value>
+			</list>
+		</property>
+		<property name="VATTax" value="21.0" />
+		<property name="countryCode" value="+34" />
+		<property name="finderCached" value="20" />
+		<property name="finderReturn" value="50" />
+		<property name="systemName" value="systemName" />
+		<property name="defaultCreditCards">
+			<list></list>
+		</property>
+	</bean>
+
 	<!-- User accounts -->
 
 	<bean id="userAccount1" class="security.UserAccount">
@@ -56,7 +98,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="userAccount4" class="security.UserAccount">
 		<property name="username" value="useracount0" />
 		<property name="password" value="password4" />
@@ -68,7 +110,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="userAccount5" class="security.UserAccount">
 		<property name="username" value="useracount1" />
 		<property name="password" value="password5" />
@@ -80,58 +122,81 @@
 			</list>
 		</property>
 	</bean>
-	
+
+	<bean id="userAccount6" class="security.UserAccount">
+		<property name="username" value="handyWorker0" />
+		<property name="password" value="password6" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="HANDYWORKER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount7" class="security.UserAccount">
+		<property name="username" value="sponsor0" />
+		<property name="password" value="password7" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 	<!-- Messages -->
-		
-		<bean id="message0" class="domain.Message">
-			<property name="moment" value="2018/11/11 12:37"/>
-				
-			<property name="subject" value="subject0"/>
-			<property name="body" value="body0"/>
-			<property name="priority" value="NEUTRAL"/>
-			<property name="recipients">
-				<list>
-					<ref bean="admin0"/>
-				</list>
-			</property>
-			<property name="sender" ref="admin0"/>
-		</bean>
-		
-		<bean id="message1" class="domain.Message">
-			<property name="moment" value="2018/10/11 12:37"/>	
-			<property name="subject" value="subject1"/>
-			<property name="body" value="body1"/>
-			<property name="priority" value="NEUTRAL"/>
-			<property name="recipients">
-				<list>
-					<ref bean="referee0"/>
-				</list>
-			</property>
-			<property name="sender" ref="referee0"/>
-		</bean>
-		
-		
-		
+
+	<bean id="message0" class="domain.Message">
+		<property name="moment" value="2018/11/11 12:37" />
+
+		<property name="subject" value="subject0" />
+		<property name="body" value="body0" />
+		<property name="priority" value="NEUTRAL" />
+		<property name="recipients">
+			<list>
+				<ref bean="admin0" />
+			</list>
+		</property>
+		<property name="sender" ref="admin0" />
+	</bean>
+
+	<bean id="message1" class="domain.Message">
+		<property name="moment" value="2018/10/11 12:37" />
+		<property name="subject" value="subject1" />
+		<property name="body" value="body1" />
+		<property name="priority" value="NEUTRAL" />
+		<property name="recipients">
+			<list>
+				<ref bean="referee0" />
+			</list>
+		</property>
+		<property name="sender" ref="referee0" />
+	</bean>
+
+
+
 	<!-- Boxes -->
-	
+
 	<!-- Admin Boxes -->
-	
+
 	<bean id="admin0_box0" class="domain.Box">
-		<property name="name" value="INBOX"/>
-		<property name="predefined" value="true"/>
+		<property name="name" value="INBOX" />
+		<property name="predefined" value="true" />
 		<property name="messages">
 			<list>
-				<ref bean="message0"/>
+				<ref bean="message0" />
 			</list>
 		</property>
 		<property name="children">
 			<list></list>
 		</property>
 	</bean>
-	
+
 	<bean id="admin0_box1" class="domain.Box">
-		<property name="name" value="OUTBOX"/>
-		<property name="predefined" value="true"/>
+		<property name="name" value="OUTBOX" />
+		<property name="predefined" value="true" />
 		<property name="messages">
 			<list></list>
 		</property>
@@ -139,24 +204,24 @@
 			<list></list>
 		</property>
 	</bean>
-	
+
 	<!-- Referees Boxes -->
-		<bean id="referee0_box0" class="domain.Box">
-		<property name="name" value="INBOX"/>
-		<property name="predefined" value="true"/>
+	<bean id="referee0_box0" class="domain.Box">
+		<property name="name" value="INBOX" />
+		<property name="predefined" value="true" />
 		<property name="messages">
 			<list>
-				<ref bean="message1"/>
+				<ref bean="message1" />
 			</list>
 		</property>
 		<property name="children">
 			<list></list>
 		</property>
 	</bean>
-	
+
 	<bean id="referee0_box1" class="domain.Box">
-		<property name="name" value="OUTBOX"/>
-		<property name="predefined" value="true"/>
+		<property name="name" value="OUTBOX" />
+		<property name="predefined" value="true" />
 		<property name="messages">
 			<list></list>
 		</property>
@@ -164,20 +229,108 @@
 			<list></list>
 		</property>
 	</bean>
-	
+
 	<!-- Customer Boxes -->
-	
-	
-	
+
+
+
 	<!-- Complaints -->
-	
-	
-	
+
+	<!-- Personal Records -->
+
+	<bean id="personal_record0" class="domain.PersonalRecord">
+		<property name="fullName" value="personalRecordFullName" />
+		<property name="photoURL"
+			value="https://www.vgr.com/wp-content/uploads/2018/11/Red-Dead-Redemption-2-Download-Time-600x300.jpg" />
+		<property name="email" value="personalRecordEmail@gmail.com" />
+		<property name="phoneNumber" value="616234567" />
+		<property name="linkedInProfileURL" value="https://es.linkedin.com/">
+		</property>
+	</bean>
+
+	<!-- Miscellaneous Records -->
+
+	<bean id="miscellaneous_record0" class="domain.MiscellaneousRecord">
+		<property name="title" value="miscellaneus_title" />
+		<property name="comments">
+			<list></list>
+		</property>
+		<property name="attachmentURL" value="https://www.google.es/">
+		</property>
+	</bean>
+
+	<!-- Endorser Records -->
+
+	<bean id="endorser_record0" class="domain.EndorserRecord">
+		<property name="fullName" value="endorserFullName0" />
+		<property name="email" value="personalRecordEmail@gmail.com" />
+		<property name="phoneNumber" value="600000100" />
+		<property name="linkedInProfileURL" value="https://es.linkedin.com/" />
+		<property name="comments">
+			<list></list>
+		</property>
+	</bean>
+
+	<!-- Education Records -->
+
+	<bean id="education_record0" class="domain.EducationRecord">
+		<property name="diplomaTitle" value="diplomaTitle0" />
+		<property name="institutionName" value="institutionName0" />
+		<property name="comments">
+			<list></list>
+		</property>
+		<property name="startDate" value="2018/11/11 12:30" />
+		<property name="endDate" value="2019/11/11 12:30" />
+		<property name="attachmentURL" value="https://www.google.es/">
+		</property>
+	</bean>
+
+	<!-- Professional Records -->
+
+	<bean id="professional_record0" class="domain.ProfessionalRecord">
+		<property name="companyName" value="companyName0" />
+		<property name="startDate" value="2018/11/11 12:30" />
+		<property name="endDate" value="2019/11/11 12:30" />
+		<property name="playedRole" value="playedRole0" />
+		<property name="comments">
+			<list></list>
+		</property>
+		<property name="attachmentURL" value="https://www.google.es/">
+		</property>
+	</bean>
+
+	<!-- Curriculums -->
+
+	<bean id="curriculum0" class="domain.Curriculum">
+		<property name="ticker" value="“980317-012345" />
+		<property name="personalRecord" ref="personal_record0" />
+		<property name="miscellaneousRecords">
+			<list>
+				<ref bean="miscellaneous_record0" />
+			</list>
+		</property>
+		<property name="endorserRecords">
+			<list>
+				<ref bean="endorser_record0" />
+			</list>
+		</property>
+		<property name="educationRecords">
+			<list>
+				<ref bean="education_record0" />
+			</list>
+		</property>
+		<property name="professionalRecords">
+			<list>
+				<ref bean="professional_record0" />
+			</list>
+		</property>
+	</bean>
+
 	<!-- Notes -->
-	
+
 	<bean id="note0" class="domain.Note">
-		<property name="moment" value="2018/11/11 11:35"/>
-		<property name="creatorComment" value="creatorComment0"/>
+		<property name="moment" value="2018/11/11 11:35" />
+		<property name="creatorComment" value="creatorComment0" />
 		<property name="comments">
 			<list>
 				<value>sample_comment</value>
@@ -186,53 +339,55 @@
 		<property name="actor" ref="referee0">
 		</property>
 	</bean>
-	
+
 	<!-- Reports -->
+
 	
-	
-	
+
 	<!-- Actors -->
-	
+
 	<!-- Admins -->
-	
+
 	<bean id="admin0" class="domain.Administrator">
-		<property name="name" value="admin_name_0"/>
-		<property name="middleName" value="admin_middle_Name0"/>
-		<property name="surname" value="admin_surname0"/>
-		<property name="email" value="adminmail0@mail.com"/>
-		<property name="photo" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThYg72q-7KxNoiVfWXHQp3VUvy0WwbBnJZfIM9LSefhVdEmNxa"/>
-		<property name="phoneNumber" value="600000000"/>
-		<property name="address" value="Seville"/>
-		<property name="userAccount" ref="userAccount1"/>
+		<property name="name" value="admin_name_0" />
+		<property name="middleName" value="admin_middle_Name0" />
+		<property name="surname" value="admin_surname0" />
+		<property name="email" value="adminmail0@mail.com" />
+		<property name="photo"
+			value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThYg72q-7KxNoiVfWXHQp3VUvy0WwbBnJZfIM9LSefhVdEmNxa" />
+		<property name="phoneNumber" value="600000000" />
+		<property name="address" value="Seville" />
+		<property name="userAccount" ref="userAccount1" />
 		<property name="socialIdentity">
 			<list></list>
 		</property>
 		<property name="boxes">
 			<list>
-				<ref bean="admin0_box0"/>
-				<ref bean="admin0_box1"/>
+				<ref bean="admin0_box0" />
+				<ref bean="admin0_box1" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<!-- Referees -->
-	
+
 	<bean id="referee0" class="domain.Referee">
-		<property name="name" value="referee_name_0"/>
-		<property name="middleName" value="referee_middleName0"/>
-		<property name="surname" value="referee_surname0"/>
-		<property name="email" value="refereemail0@mail.com"/>
-		<property name="photo" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThYg72q-7KxNoiVfWXHQp3VUvy0WwbBnJZfIM9LSefhVdEmNxa"/>
-		<property name="phoneNumber" value="600000001"/>
-		<property name="address" value="Seville"/>
-		<property name="userAccount" ref="userAccount4"/>
+		<property name="name" value="referee_name_0" />
+		<property name="middleName" value="referee_middleName0" />
+		<property name="surname" value="referee_surname0" />
+		<property name="email" value="refereemail0@mail.com" />
+		<property name="photo"
+			value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThYg72q-7KxNoiVfWXHQp3VUvy0WwbBnJZfIM9LSefhVdEmNxa" />
+		<property name="phoneNumber" value="600000001" />
+		<property name="address" value="Seville" />
+		<property name="userAccount" ref="userAccount4" />
 		<property name="socialIdentity">
 			<list></list>
 		</property>
 		<property name="boxes">
 			<list>
-				<ref bean="referee0_box0"/>
-				<ref bean="referee0_box1"/>
+				<ref bean="referee0_box0" />
+				<ref bean="referee0_box1" />
 			</list>
 		</property>
 		<property name="reports">
@@ -240,11 +395,42 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<!-- Customers -->
+
 	
+	<!-- Handy Worker -->
+
+	<bean id="handyWorker0" class="domain.HandyWorker">
+		<property name="name" value="handyWorker_name_0" />
+		<property name="middleName" value="handyWorker_middle_Name0" />
+		<property name="surname" value="handyWorkersurname0" />
+		<property name="email" value="handyWorkermail0@mail.com" />
+		<property name="photo"
+			value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThYg72q-7KxNoiVfWXHQp3VUvy0WwbBnJZfIM9LSefhVdEmNxa" />
+		<property name="phoneNumber" value="600000000" />
+		<property name="address" value="Seville" />
+		<property name="userAccount" ref="userAccount1" />
+		<property name="socialIdentity">
+			<list></list>
+		</property>
+		<property name="boxes">
+			<list></list>
+		</property>
+		<property name="make" value="Paco Martin" />
+		<property name="applications">
+			<list></list>
+		</property>
+		<property name="tutorials">
+			<list></list>
+		</property>
+		<property name="endorsements">
+			<list></list>
+		</property>
+		<property name="curriculum" ref="curriculum0" />
+	</bean>
+
 	
-	
-	<!-- Other domain beans come here -->	
-	
+	<!-- Other domain beans come here -->
+
 </beans>
