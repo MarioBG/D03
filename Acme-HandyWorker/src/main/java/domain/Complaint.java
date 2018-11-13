@@ -1,12 +1,14 @@
 
 package domain;
 
-import java.sql.Date;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -14,6 +16,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Complaint extends DomainEntity {
@@ -35,6 +38,8 @@ public class Complaint extends DomainEntity {
 	}
 
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public Date getMoment() {
 		return this.moment;
 	}

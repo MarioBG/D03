@@ -5,13 +5,13 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.URL;
 
 @Entity
 public class Tutorial extends DomainEntity {
@@ -49,7 +49,7 @@ public class Tutorial extends DomainEntity {
 		this.summary = summary;
 	}
 
-	@URL
+	@ElementCollection(targetClass = String.class)
 	public Collection<String> getPictures() {
 		return this.pictures;
 	}

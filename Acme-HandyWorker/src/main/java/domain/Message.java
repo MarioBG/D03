@@ -7,24 +7,28 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
-import org.apache.log4j.Priority;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Message extends DomainEntity {
 
-	private Date		moment;
-	private String		subject;
-	private String		body;
-	private Priority	priority;
+	private Date	moment;
+	private String	subject;
+	private String	body;
+	private String	priority;
 
 
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -52,11 +56,11 @@ public class Message extends DomainEntity {
 	}
 
 	@Pattern(regexp = "^NEUTRAL|HIGH|LOW$")
-	public Priority getPriority() {
+	public String getPriority() {
 		return this.priority;
 	}
 
-	public void setPriority(final Priority priority) {
+	public void setPriority(final String priority) {
 		this.priority = priority;
 	}
 
@@ -65,7 +69,6 @@ public class Message extends DomainEntity {
 
 	private Collection<Actor>	recipients;
 	private Actor				sender;
-	private Box					box;
 
 
 	@NotNull
@@ -88,17 +91,6 @@ public class Message extends DomainEntity {
 
 	public void setSender(final Actor sender) {
 		this.sender = sender;
-	}
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = true)
-	public Box getBox() {
-		return this.box;
-	}
-
-	public void setBox(final Box box) {
-		this.box = box;
 	}
 
 }

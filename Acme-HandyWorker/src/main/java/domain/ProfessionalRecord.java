@@ -4,6 +4,7 @@ package domain;
 import java.sql.Date;
 import java.util.Collection;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -58,6 +59,7 @@ public class ProfessionalRecord extends DomainEntity {
 		this.playedRole = playedRole;
 	}
 
+	@ElementCollection(targetClass = String.class)
 	public Collection<String> getComments() {
 		return this.comment;
 	}

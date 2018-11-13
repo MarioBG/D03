@@ -11,14 +11,12 @@ import javax.validation.Valid;
 @Entity
 public class Finder extends DomainEntity {
 
-	private String		keyWord;
-	private Double		minPrice;
-	private Double		maxPrice;
-	private Date		startDate;
-	private Date		endDate;
-	private Date		lastSearchDate;
-	private Warranty	warranty;
-	private Category	category;
+	private String	keyWord;
+	private Double	minPrice;
+	private Double	maxPrice;
+	private Date	startDate;
+	private Date	endDate;
+	private Date	lastSearchDate;
 
 
 	public String getKeyWord() {
@@ -67,23 +65,6 @@ public class Finder extends DomainEntity {
 
 	public void setLastSearchDate(final Date lastSearchDate) {
 		this.lastSearchDate = lastSearchDate;
-	}
-
-	public Warranty getWarranty() {
-		return this.warranty;
-	}
-
-	public void setWarranty(final Warranty warranty) {
-		this.warranty = warranty;
-	}
-
-	@Valid
-	public Category getCategory() {
-		return this.category;
-	}
-
-	public void setCategory(final Category category) {
-		this.category = category;
 	}
 
 

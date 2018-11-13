@@ -47,7 +47,7 @@ public class Curriculum extends DomainEntity {
 
 	public void setPersonalRecord(final PersonalRecord personalRecord) {
 		this.personalRecord = personalRecord;
-	};
+	}
 
 	@Valid
 	@OneToMany

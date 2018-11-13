@@ -62,4 +62,8 @@ public class HandyWorker extends Actor {
 		this.endorsements = endorsements;
 	}
 
+	public void setApplications(final Collection<Application> applications) {
+		this.applications = applications;
+	}
+
 }

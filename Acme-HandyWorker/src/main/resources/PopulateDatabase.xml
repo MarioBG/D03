@@ -24,7 +24,7 @@
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
-					<property name="authority" value="ADMIN" />
+					<property name="authority" value="ADMINISTRATOR" />
 				</bean>
 			</list>
 		</property>
@@ -48,7 +48,7 @@
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
-					<property name="authority" value="ADMIN" />
+					<property name="authority" value="ADMINISTRATOR" />
 				</bean>
 				<bean class="security.Authority">
 					<property name="authority" value="CUSTOMER" />
@@ -56,6 +56,194 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="useracount0" />
+		<property name="password" value="password4" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="REFEREE" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="useracount1" />
+		<property name="password" value="password5" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Messages -->
+		
+		<bean id="message0" class="domain.Message">
+			<property name="moment" value="2018/11/11 12:37"/>
+				
+			<property name="subject" value="subject0"/>
+			<property name="body" value="body0"/>
+			<property name="priority" value="NEUTRAL"/>
+			<property name="recipients">
+				<list>
+					<ref bean="admin0"/>
+				</list>
+			</property>
+			<property name="sender" ref="admin0"/>
+		</bean>
+		
+		<bean id="message1" class="domain.Message">
+			<property name="moment" value="2018/10/11 12:37"/>	
+			<property name="subject" value="subject1"/>
+			<property name="body" value="body1"/>
+			<property name="priority" value="NEUTRAL"/>
+			<property name="recipients">
+				<list>
+					<ref bean="referee0"/>
+				</list>
+			</property>
+			<property name="sender" ref="referee0"/>
+		</bean>
+		
+		
+		
+	<!-- Boxes -->
+	
+	<!-- Admin Boxes -->
+	
+	<bean id="admin0_box0" class="domain.Box">
+		<property name="name" value="INBOX"/>
+		<property name="predefined" value="true"/>
+		<property name="messages">
+			<list>
+				<ref bean="message0"/>
+			</list>
+		</property>
+		<property name="children">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="admin0_box1" class="domain.Box">
+		<property name="name" value="OUTBOX"/>
+		<property name="predefined" value="true"/>
+		<property name="messages">
+			<list></list>
+		</property>
+		<property name="children">
+			<list></list>
+		</property>
+	</bean>
+	
+	<!-- Referees Boxes -->
+		<bean id="referee0_box0" class="domain.Box">
+		<property name="name" value="INBOX"/>
+		<property name="predefined" value="true"/>
+		<property name="messages">
+			<list>
+				<ref bean="message1"/>
+			</list>
+		</property>
+		<property name="children">
+			<list></list>
+		</property>
+	</bean>
+	
+	<bean id="referee0_box1" class="domain.Box">
+		<property name="name" value="OUTBOX"/>
+		<property name="predefined" value="true"/>
+		<property name="messages">
+			<list></list>
+		</property>
+		<property name="children">
+			<list></list>
+		</property>
+	</bean>
+	
+	<!-- Customer Boxes -->
+	
+	
+	
+	<!-- Complaints -->
+	
+	
+	
+	<!-- Notes -->
+	
+	<bean id="note0" class="domain.Note">
+		<property name="moment" value="2018/11/11 11:35"/>
+		<property name="creatorComment" value="creatorComment0"/>
+		<property name="comments">
+			<list>
+				<value>sample_comment</value>
+			</list>
+		</property>
+		<property name="actor" ref="referee0">
+		</property>
+	</bean>
+	
+	<!-- Reports -->
+	
+	
+	
+	<!-- Actors -->
+	
+	<!-- Admins -->
+	
+	<bean id="admin0" class="domain.Administrator">
+		<property name="name" value="admin_name_0"/>
+		<property name="middleName" value="admin_middle_Name0"/>
+		<property name="surname" value="admin_surname0"/>
+		<property name="email" value="adminmail0@mail.com"/>
+		<property name="photo" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThYg72q-7KxNoiVfWXHQp3VUvy0WwbBnJZfIM9LSefhVdEmNxa"/>
+		<property name="phoneNumber" value="600000000"/>
+		<property name="address" value="Seville"/>
+		<property name="userAccount" ref="userAccount1"/>
+		<property name="socialIdentity">
+			<list></list>
+		</property>
+		<property name="boxes">
+			<list>
+				<ref bean="admin0_box0"/>
+				<ref bean="admin0_box1"/>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Referees -->
+	
+	<bean id="referee0" class="domain.Referee">
+		<property name="name" value="referee_name_0"/>
+		<property name="middleName" value="referee_middleName0"/>
+		<property name="surname" value="referee_surname0"/>
+		<property name="email" value="refereemail0@mail.com"/>
+		<property name="photo" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThYg72q-7KxNoiVfWXHQp3VUvy0WwbBnJZfIM9LSefhVdEmNxa"/>
+		<property name="phoneNumber" value="600000001"/>
+		<property name="address" value="Seville"/>
+		<property name="userAccount" ref="userAccount4"/>
+		<property name="socialIdentity">
+			<list></list>
+		</property>
+		<property name="boxes">
+			<list>
+				<ref bean="referee0_box0"/>
+				<ref bean="referee0_box1"/>
+			</list>
+		</property>
+		<property name="reports">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Customers -->
+	
+	
 	
 	<!-- Other domain beans come here -->	
 	

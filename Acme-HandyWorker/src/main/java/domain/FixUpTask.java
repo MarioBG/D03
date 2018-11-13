@@ -99,7 +99,7 @@ public class FixUpTask extends DomainEntity {
 
 
 	@Valid
-	@ManyToOne(optional = false, targetEntity = Category.class)
+	@ManyToOne(optional = false)
 	public Category getCategory() {
 		return this.category;
 	}
