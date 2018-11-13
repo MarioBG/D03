@@ -12,10 +12,8 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.URL;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -28,7 +26,6 @@ public class Complaint extends DomainEntity {
 
 
 	@NotBlank
-	@Pattern(regexp = "^d{6}-[A-Z0-9]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}
@@ -57,7 +54,6 @@ public class Complaint extends DomainEntity {
 		this.description = description;
 	}
 
-	@URL
 	@ElementCollection(targetClass = String.class)
 	public Collection<String> getAttachments() {
 		return this.attachments;

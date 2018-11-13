@@ -6,7 +6,6 @@ import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.validation.Valid;
 
 @Entity
 public class Finder extends DomainEntity {
@@ -73,14 +72,13 @@ public class Finder extends DomainEntity {
 	private Collection<FixUpTask>	fixUpTasks;
 
 
-	public void setFixUpTasks(final Collection<FixUpTask> fixUpTasks) {
-		this.fixUpTasks = fixUpTasks;
-	}
-
-	@Valid
 	@OneToMany
 	public Collection<FixUpTask> getFixUpTasks() {
 		return this.fixUpTasks;
+	}
+
+	public void setFixUpTasks(final Collection<FixUpTask> fixUpTasks) {
+		this.fixUpTasks = fixUpTasks;
 	}
 
 }

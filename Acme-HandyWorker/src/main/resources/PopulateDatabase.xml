@@ -26,7 +26,7 @@
 
 	<bean id="welcomeMessage0" class="domain.WelcomeMessage">
 		<property name="languageCode" value="lenguageCode" />
-		<property name="content" value="welcomeMessageContent" >
+		<property name="content" value="welcomeMessageContent">
 		</property>
 	</bean>
 
@@ -141,7 +141,7 @@
 		<property name="authorities">
 			<list>
 				<bean class="security.Authority">
-					<property name="authority" value="CUSTOMER" />
+					<property name="authority" value="SPONSOR" />
 				</bean>
 			</list>
 		</property>
@@ -154,11 +154,7 @@
 		<property name="subject" value="subject0" />
 		<property name="body" value="body0" />
 		<property name="priority" value="NEUTRAL" />
-		<property name="recipients">
-			<list>
-				<ref bean="admin0" />
-			</list>
-		</property>
+		<property name="recipient" ref="admin0" />
 		<property name="sender" ref="admin0" />
 	</bean>
 
@@ -167,16 +163,19 @@
 		<property name="subject" value="subject1" />
 		<property name="body" value="body1" />
 		<property name="priority" value="NEUTRAL" />
-		<property name="recipients">
-			<list>
-				<ref bean="referee0" />
-			</list>
-		</property>
+		<property name="recipient" ref="referee0" />
 		<property name="sender" ref="referee0" />
 	</bean>
 
-
-
+	<bean id="message2" class="domain.Message">
+			<property name="moment" value="2018/11/11 11:37"/>	
+			<property name="subject" value="subject2"/>
+			<property name="body" value="body2"/>
+			<property name="priority" value="NEUTRAL"/>
+			<property name="recipient" ref="customer0"/>
+			<property name="sender" ref="customer0"/>
+		</bean>
+		
 	<!-- Boxes -->
 
 	<!-- Admin Boxes -->
@@ -232,9 +231,29 @@
 
 	<!-- Customer Boxes -->
 
+	<bean id="customer0_box0" class="domain.Box">
+		<property name="name" value="INBOX" />
+		<property name="predefined" value="true" />
+		<property name="messages">
+			<list>
+				<ref bean="message2" />
+			</list>
+		</property>
+		<property name="children">
+			<list></list>
+		</property>
+	</bean>
 
-
-	<!-- Complaints -->
+	<bean id="customer0_box1" class="domain.Box">
+		<property name="name" value="OUTBOX" />
+		<property name="predefined" value="true" />
+		<property name="messages">
+			<list></list>
+		</property>
+		<property name="children">
+			<list></list>
+		</property>
+	</bean>
 
 	<!-- Personal Records -->
 
@@ -340,9 +359,74 @@
 		</property>
 	</bean>
 
+	<!-- Complaints -->
+
+	<bean id="complaint0" class="domain.Complaint">
+		<property name="ticker" value="991311-123456" />
+		<property name="moment" value="2018/11/11 11:36" />
+		<property name="description" value="description0" />
+		<property name="attachments">
+			<list>
+				<value>https://www.sample.com</value>
+			</list>
+		</property>
+		<property name="customer" ref="customer0">
+		</property>
+	</bean>
+
 	<!-- Reports -->
 
-	
+	<bean id="report0" class="domain.Report">
+		<property name="moment" value="2018/10/11 12:37" />
+		<property name="description" value="description0" />
+		<property name="attachments">
+			<list></list>
+		</property>
+		<property name="complaints">
+			<list>
+				<ref bean="complaint0" />
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+				<ref bean="note0" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Section -->
+
+	<bean id="section0" class="domain.Section">
+		<property name="title" value="sectionTitle" />
+		<property name="text" value="sectionText" />
+		<property name="pictures">
+			<list>
+				<value>https://www.vgr.com/wp-content/uploads/2018/11/Red-Dead-Redemption-2-Download-Time-600x300.jpg
+				</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- Tutorial -->
+
+	<bean id="tutorial0" class="domain.Tutorial">
+		<property name="title" value="tutorialTitle" />
+		<property name="updateTime" value="018/11/11 11:35" />
+		<property name="summary" value="tutorialSummary" />
+		<property name="pictures">
+			<list>
+				<value>https://www.vgr.com/wp-content/uploads/2018/11/Red-Dead-Redemption-2-Download-Time-600x300.jpg
+				</value>
+			</list>
+		</property>
+		<property name="sections">
+			<list>
+				<ref bean="section0" />
+			</list>
+		</property>
+	</bean>
+
 
 	<!-- Actors -->
 
@@ -392,13 +476,43 @@
 		</property>
 		<property name="reports">
 			<list>
+				<ref bean="report0" />
 			</list>
 		</property>
 	</bean>
 
+
 	<!-- Customers -->
 
-	
+	<bean id="customer0" class="domain.Customer">
+		<property name="name" value="customer_name_0" />
+		<property name="middleName" value="customer_middleName0" />
+		<property name="surname" value="customer_surname0" />
+		<property name="email" value="customeremail0@mail.com" />
+		<property name="photo"
+			value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThYg72q-7KxNoiVfWXHQp3VUvy0WwbBnJZfIM9LSefhVdEmNxa" />
+		<property name="phoneNumber" value="600000001" />
+		<property name="address" value="Seville" />
+		<property name="userAccount" ref="userAccount5" />
+		<property name="socialIdentity">
+			<list></list>
+		</property>
+		<property name="boxes">
+			<list>
+				<ref bean="customer0_box0" />
+				<ref bean="customer0_box1" />
+			</list>
+		</property>
+		<property name="fixUpTasks">
+			<list></list>
+		</property>
+		<property name="endorsements">
+			<list></list>
+		</property>
+		
+	</bean>
+
+
 	<!-- Handy Worker -->
 
 	<bean id="handyWorker0" class="domain.HandyWorker">
@@ -430,7 +544,42 @@
 		<property name="curriculum" ref="curriculum0" />
 	</bean>
 
-	
+	<!-- Sponsorship -->
+
+	<bean id="sponsorship0" class="domain.Sponsorship">
+		<property name="banner"
+			value="https://www.vgr.com/wp-content/uploads/2018/11/Red-Dead-Redemption-2-Download-Time-600x300.jpg" />
+		<property name="link" value="https://www.google.es/" />
+		<property name="creditCard" ref="creditCard0" />
+		<property name="tutorial" ref="tutorial0">
+		</property>
+	</bean>
+
+	<!-- Sponsor -->
+
+	<bean id="sponsor" class="domain.Sponsor">
+		<property name="name" value="sponsor_name_0" />
+		<property name="middleName" value="sponsor_middle_Name0" />
+		<property name="surname" value="sponsor_surname0" />
+		<property name="email" value="sponsormail0@mail.com" />
+		<property name="photo"
+			value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThYg72q-7KxNoiVfWXHQp3VUvy0WwbBnJZfIM9LSefhVdEmNxa" />
+		<property name="phoneNumber" value="600000000" />
+		<property name="address" value="Seville" />
+		<property name="userAccount" ref="userAccount7" />
+		<property name="socialIdentity">
+			<list></list>
+		</property>
+		<property name="boxes">
+			<list></list>
+		</property>
+		<property name="sponsorships">
+			<list>
+				<ref bean="sponsorship0" />
+			</list>
+		</property>
+	</bean>
+
 	<!-- Other domain beans come here -->
 
 </beans>

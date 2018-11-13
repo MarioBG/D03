@@ -4,6 +4,7 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -119,7 +120,6 @@ public class FixUpTask extends DomainEntity {
 		this.warranty = warranty;
 	}
 
-	@Valid
 	@OneToMany
 	public Collection<Application> getApplications() {
 		return this.applications;
@@ -129,8 +129,7 @@ public class FixUpTask extends DomainEntity {
 		this.applications = applications;
 	}
 
-	@Valid
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<Phase> getPhase() {
 		return this.phase;
 	}

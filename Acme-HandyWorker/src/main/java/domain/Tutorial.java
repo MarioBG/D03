@@ -3,14 +3,13 @@ package domain;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -66,16 +65,15 @@ public class Tutorial extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private List<Section>	sections;
+	private Collection<Section>	sections;
 
 
-	@Valid
-	@OneToMany
-	public List<Section> getSections() {
+	@OneToMany(cascade = CascadeType.ALL)
+	public Collection<Section> getSections() {
 		return this.sections;
 	}
 
-	public void setSections(final List<Section> sections) {
+	public void setSections(final Collection<Section> sections) {
 		this.sections = sections;
 	}
 

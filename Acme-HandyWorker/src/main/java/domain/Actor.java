@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -102,7 +103,7 @@ public abstract class Actor extends DomainEntity {
 
 	@Valid
 	@NotNull
-	@OneToOne(optional = false)
+	@OneToOne(cascade = CascadeType.ALL, optional = false)
 	public UserAccount getUserAccount() {
 		return this.userAccount;
 	}
@@ -111,7 +112,6 @@ public abstract class Actor extends DomainEntity {
 		this.userAccount = userAccount;
 	}
 
-	@Valid
 	@OneToMany
 	public Collection<SocialIdentity> getSocialIdentity() {
 		return this.socialIdentity;
@@ -121,7 +121,6 @@ public abstract class Actor extends DomainEntity {
 		this.socialIdentity = socialIdentity;
 	}
 
-	@Valid
 	@OneToMany
 	public Collection<Box> getBoxes() {
 		return this.boxes;

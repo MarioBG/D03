@@ -7,7 +7,6 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.URL;
 
 @Entity
 public class Section extends DomainEntity {
@@ -35,7 +34,6 @@ public class Section extends DomainEntity {
 		this.text = text;
 	}
 
-	@URL
 	@ElementCollection(targetClass = String.class)
 	public Collection<String> getPictures() {
 		return this.pictures;

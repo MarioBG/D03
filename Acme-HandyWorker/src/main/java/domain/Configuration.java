@@ -6,7 +6,6 @@ import java.util.Collection;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
@@ -103,7 +102,6 @@ public class Configuration extends DomainEntity {
 	private Collection<WelcomeMessage>	welcomeMessage;
 
 
-	@Valid
 	@OneToMany
 	public Collection<WelcomeMessage> getWelcomeMessage() {
 		return this.welcomeMessage;

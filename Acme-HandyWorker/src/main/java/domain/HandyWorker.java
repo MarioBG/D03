@@ -34,7 +34,6 @@ public class HandyWorker extends Actor {
 	private Curriculum				curriculum;
 
 
-	@Valid
 	@OneToMany
 	public Collection<Application> getApplications() {
 		return this.applications;
@@ -44,7 +43,6 @@ public class HandyWorker extends Actor {
 		this.applications = applications;
 	}
 
-	@Valid
 	@OneToMany
 	public Collection<Tutorial> getTutorials() {
 		return this.tutorials;
@@ -54,7 +52,6 @@ public class HandyWorker extends Actor {
 		this.tutorials = tutorials;
 	}
 
-	@Valid
 	@OneToMany
 	public Collection<Endorsement> getEndorsements() {
 		return this.endorsements;

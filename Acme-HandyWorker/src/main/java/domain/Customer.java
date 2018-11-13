@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.validation.Valid;
 
 @Entity
 public class Customer extends Actor {
@@ -16,7 +15,6 @@ public class Customer extends Actor {
 	private Collection<Endorsement>	endorsements;
 
 
-	@Valid
 	@OneToMany
 	public Collection<FixUpTask> getFixUpTasks() {
 		return this.fixUpTasks;
@@ -26,7 +24,6 @@ public class Customer extends Actor {
 		this.fixUpTasks = fixUpTasks;
 	}
 
-	@Valid
 	@OneToMany
 	public Collection<Endorsement> getEndorsements() {
 		return this.endorsements;

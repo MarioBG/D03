@@ -3,6 +3,7 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -40,7 +41,7 @@ public class Curriculum extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	public PersonalRecord getPersonalRecord() {
 		return this.personalRecord;
 	}
@@ -49,8 +50,7 @@ public class Curriculum extends DomainEntity {
 		this.personalRecord = personalRecord;
 	}
 
-	@Valid
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<MiscellaneousRecord> getMiscellaneousRecords() {
 		return this.miscellaneousRecords;
 	}
@@ -59,8 +59,7 @@ public class Curriculum extends DomainEntity {
 		this.miscellaneousRecords = miscellaneousRecords;
 	}
 
-	@Valid
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<EndorserRecord> getEndorserRecords() {
 		return this.endorserRecords;
 	}
@@ -69,8 +68,7 @@ public class Curriculum extends DomainEntity {
 		this.endorserRecords = endorserRecords;
 	}
 
-	@Valid
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<EducationRecord> getEducationRecords() {
 		return this.educationRecords;
 	}
@@ -79,8 +77,7 @@ public class Curriculum extends DomainEntity {
 		this.educationRecords = educationRecords;
 	}
 
-	@Valid
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<ProfessionalRecord> getProfessionalRecords() {
 		return this.professionalRecords;
 	}

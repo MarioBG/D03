@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -59,7 +58,6 @@ public class Report extends DomainEntity {
 	private Collection<Note>		notes;
 
 
-	@Valid
 	@OneToMany
 	public Collection<Complaint> getComplaints() {
 		return this.complaints;
@@ -69,7 +67,6 @@ public class Report extends DomainEntity {
 		this.complaints = complaint;
 	}
 
-	@Valid
 	@OneToMany
 	public Collection<Note> getNotes() {
 		return this.notes;
