@@ -156,6 +156,7 @@
 		<property name="priority" value="NEUTRAL" />
 		<property name="recipient" ref="admin0" />
 		<property name="sender" ref="admin0" />
+		<property name="box" ref="admin0_box0" />
 	</bean>
 
 	<bean id="message1" class="domain.Message">
@@ -165,6 +166,7 @@
 		<property name="priority" value="NEUTRAL" />
 		<property name="recipient" ref="referee0" />
 		<property name="sender" ref="referee0" />
+		<property name="box" ref="referee0_box0" />
 	</bean>
 
 	<bean id="message2" class="domain.Message">
@@ -174,6 +176,7 @@
 			<property name="priority" value="NEUTRAL"/>
 			<property name="recipient" ref="customer0"/>
 			<property name="sender" ref="customer0"/>
+			<property name="box" ref="customer0_box0" />
 		</bean>
 		
 	<!-- Boxes -->
