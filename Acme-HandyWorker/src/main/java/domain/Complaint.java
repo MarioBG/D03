@@ -4,6 +4,7 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -26,6 +27,8 @@ public class Complaint extends DomainEntity {
 
 
 	@NotBlank
+	@Column(unique = true)
+	//@Pattern(regexp = "^[0-9]{6}\\-[A-Z0-9]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}

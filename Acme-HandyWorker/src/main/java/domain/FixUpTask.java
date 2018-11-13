@@ -5,16 +5,19 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class FixUpTask extends DomainEntity {
@@ -29,7 +32,8 @@ public class FixUpTask extends DomainEntity {
 
 
 	@NotBlank
-	@Pattern(regexp = "^d{6}-[A-Z0-9]{6}$")
+	@Column(unique = true)
+	//@Pattern(regexp = "^[0-9]{6}\\-[A-Z0-9]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}
@@ -39,6 +43,8 @@ public class FixUpTask extends DomainEntity {
 	}
 
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public Date getPublicationMoment() {
 		return this.publicationMoment;
 	}
@@ -74,6 +80,8 @@ public class FixUpTask extends DomainEntity {
 		this.maxPrice = maxPrice;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -82,6 +90,8 @@ public class FixUpTask extends DomainEntity {
 		this.startDate = startDate;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public Date getEndDate() {
 		return this.endDate;
 	}
@@ -96,7 +106,8 @@ public class FixUpTask extends DomainEntity {
 	private Collection<Application>	applications;
 	private Category				category;
 	private Warranty				warranty;
-	private Collection<Phase>		phase;
+	private Collection<Phase>		phases;
+	private Collection<Complaint>	complaints;
 
 
 	@Valid
@@ -130,12 +141,21 @@ public class FixUpTask extends DomainEntity {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL)
-	public Collection<Phase> getPhase() {
-		return this.phase;
+	public Collection<Phase> getPhases() {
+		return this.phases;
 	}
 
-	public void setPhase(final Collection<Phase> phase) {
-		this.phase = phase;
+	public void setPhases(final Collection<Phase> phases) {
+		this.phases = phases;
+	}
+
+	@OneToMany
+	public Collection<Complaint> getComplaints() {
+		return this.complaints;
+	}
+
+	public void setComplaints(final Collection<Complaint> complaints) {
+		this.complaints = complaints;
 	}
 
 }

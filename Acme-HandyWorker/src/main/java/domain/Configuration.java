@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
@@ -22,7 +23,7 @@ public class Configuration extends DomainEntity {
 	private Double				finderCached;
 	private Integer				finderReturn;
 	private String				systemName;
-	private Collection<String>	defaultCreditCards;
+	private String				defaultCreditCards;
 
 
 	@URL
@@ -87,12 +88,12 @@ public class Configuration extends DomainEntity {
 		this.systemName = systemName;
 	}
 
-	@ElementCollection(targetClass = String.class)
-	public Collection<String> getDefaultCreditCards() {
+	@Pattern(regexp = "^([a-zA-Z0-9 ]*,)*[a-zA-Z0-9 ]+$")
+	public String getDefaultCreditCards() {
 		return this.defaultCreditCards;
 	}
 
-	public void setDefaultCreditCards(final Collection<String> defaultCreditCards) {
+	public void setDefaultCreditCards(final String defaultCreditCards) {
 		this.defaultCreditCards = defaultCreditCards;
 	}
 

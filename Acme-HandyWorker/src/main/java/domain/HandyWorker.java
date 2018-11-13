@@ -32,6 +32,7 @@ public class HandyWorker extends Actor {
 	private Collection<Tutorial>	tutorials;
 	private Collection<Endorsement>	endorsements;
 	private Curriculum				curriculum;
+	private Finder					finder;
 
 
 	@OneToMany
@@ -73,6 +74,16 @@ public class HandyWorker extends Actor {
 
 	public void setCurriculum(final Curriculum curriculum) {
 		this.curriculum = curriculum;
+	}
+
+	@Valid
+	@OneToOne(optional = false)
+	public Finder getFinder() {
+		return this.finder;
+	}
+
+	public void setFinder(final Finder finder) {
+		this.finder = finder;
 	}
 
 }

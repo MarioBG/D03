@@ -21,6 +21,7 @@ public class Curriculum extends DomainEntity {
 
 	@Column(unique = true)
 	@NotBlank
+	//@Pattern(regexp = "^[0-9]{6}\\-[A-Z0-9]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}

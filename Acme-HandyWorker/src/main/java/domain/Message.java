@@ -67,6 +67,7 @@ public class Message extends DomainEntity {
 
 	private Actor	recipient;
 	private Actor	sender;
+	private Box		box;
 
 
 	@NotNull
@@ -89,6 +90,17 @@ public class Message extends DomainEntity {
 
 	public void setSender(final Actor sender) {
 		this.sender = sender;
+	}
+
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	public Box getBox() {
+		return this.box;
+	}
+
+	public void setBox(final Box box) {
+		this.box = box;
 	}
 
 }

@@ -4,8 +4,11 @@ package domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Phase extends DomainEntity {
@@ -34,6 +37,8 @@ public class Phase extends DomainEntity {
 		this.description = description;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public Date getStartMoment() {
 		return this.startMoment;
 	}
@@ -42,6 +47,8 @@ public class Phase extends DomainEntity {
 		this.startMoment = startMoment;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	public Date getEndMoment() {
 		return this.endMoment;
 	}
