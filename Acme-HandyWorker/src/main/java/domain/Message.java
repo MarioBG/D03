@@ -103,15 +103,4 @@ public class Message extends DomainEntity {
 		this.sender = sender;
 	}
 
-	@Valid
-	@NotNull
-	@ManyToOne(optional = false)
-	public Box getBox() {
-		return this.box;
-	}
-
-	public void setBox(final Box box) {
-		this.box = box;
-	}
-
 }
