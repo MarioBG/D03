@@ -852,8 +852,8 @@
 		<property name="description" value="fixUpTaskDescription0" />
 		<property name="address" value="fixUpTaskAddress0" />
 		<property name="maxPrice" value="24.00" />
-		<property name="startDate" value="2018/02/04 9:30" />
-		<property name="endDate" value="2018/03/12 10:46" />
+		<property name="startDate" value="2019/02/04 9:30" />
+		<property name="endDate" value="2019/03/12 10:46" />
 		<property name="applications">
 			<list>
 				<ref bean="application0" />
@@ -958,7 +958,7 @@
 
 	<bean id="application0" class="domain.Application">
 		<property name="applicationMoment" value="2018/01/10 8:30" />
-		<property name="status" value="ACCEPTED" />
+		<property name="status" value="PENDING" />
 		<property name="offeredPrice" value="20.0" />
 		<property name="comments">
 			<list></list>
@@ -969,7 +969,7 @@
 	
 	<bean id="application1" class="domain.Application">
 		<property name="applicationMoment" value="2018/01/10 8:35" />
-		<property name="status" value="ACCEPTED" />
+		<property name="status" value="PENDING" />
 		<property name="offeredPrice" value="30.0" />
 		<property name="comments">
 			<list></list>
