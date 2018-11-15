@@ -667,8 +667,6 @@
 				<value>https://www.sample.com</value>
 			</list>
 		</property>
-		<property name="customer" ref="customer0">
-		</property>
 	</bean>
 
 	<bean id="complaint1" class="domain.Complaint">
@@ -679,8 +677,6 @@
 			<list>
 				<value>https://www.sample.com</value>
 			</list>
-		</property>
-		<property name="customer" ref="customer0">
 		</property>
 	</bean>
 
@@ -693,8 +689,6 @@
 				<value>https://www.sample.com</value>
 			</list>
 		</property>
-		<property name="customer" ref="customer0">
-		</property>
 	</bean>
 
 	<bean id="complaint3" class="domain.Complaint">
@@ -705,8 +699,6 @@
 			<list>
 				<value>https://www.sample.com</value>
 			</list>
-		</property>
-		<property name="customer" ref="customer1">
 		</property>
 	</bean>
 	
@@ -719,8 +711,6 @@
 				<value>https://www.sample.com</value>
 			</list>
 		</property>
-		<property name="customer" ref="customer1">
-		</property>
 	</bean>
 	
 	<bean id="complaint5" class="domain.Complaint">
@@ -731,8 +721,6 @@
 			<list>
 				<value>https://www.sample.com</value>
 			</list>
-		</property>
-		<property name="customer" ref="customer3">
 		</property>
 	</bean>
 	
@@ -1324,6 +1312,13 @@
 				<ref bean="endorsement0" />
 			</list>
 		</property>
+		<property name="complaints">
+			<list>
+				<ref bean="complaint0" />
+				<ref bean="complaint1" />
+				<ref bean="complaint2" />
+			</list>
+		</property>
 	</bean>
 
 	<bean id="customer1" class="domain.Customer">
@@ -1354,6 +1349,12 @@
 			<list>
 			</list>
 		</property>
+		<property name="complaints">
+			<list>
+				<ref bean="complaint3" />
+				<ref bean="complaint4" />
+			</list>
+		</property>
 	</bean>
 
 	<bean id="customer3" class="domain.Customer">
@@ -1381,6 +1382,11 @@
 			<list>
 			</list>
 		</property>
+		<property name="complaints">
+			<list>
+				<ref bean="complaint5" />
+			</list>
+		</property>
 	</bean>
 
 	<bean id="customer4" class="domain.Customer">
@@ -1405,6 +1411,10 @@
 			</list>
 		</property>
 		<property name="endorsements">
+			<list>
+			</list>
+		</property>
+		<property name="complaints">
 			<list>
 			</list>
 		</property>

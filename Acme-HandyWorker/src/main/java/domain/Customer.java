@@ -13,6 +13,7 @@ public class Customer extends Actor {
 
 	private Collection<FixUpTask>	fixUpTasks;
 	private Collection<Endorsement>	endorsements;
+	private Collection<Complaint>	complaints;
 
 
 	@OneToMany
@@ -31,6 +32,15 @@ public class Customer extends Actor {
 
 	public void setEndorsements(final Collection<Endorsement> endorsements) {
 		this.endorsements = endorsements;
+	}
+
+	@OneToMany
+	public Collection<Complaint> getComplaints() {
+		return this.complaints;
+	}
+
+	public void setComplaints(final Collection<Complaint> complaints) {
+		this.complaints = complaints;
 	}
 
 }
