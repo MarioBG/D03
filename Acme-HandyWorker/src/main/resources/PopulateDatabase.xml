@@ -41,6 +41,16 @@
 		<property name="cVV" value="323">
 		</property>
 	</bean>
+	
+	<bean id="creditCard3" class="domain.CreditCard">
+		<property name="holderName" value="holderName3" />
+		<property name="brandName" value="brandName3" />
+		<property name="number" value="4560272364125449" />
+		<property name="expirationMonth" value="09" />
+		<property name="expirationYear" value="21" />
+		<property name="cVV" value="666">
+		</property>
+	</bean>
 
 
 	<!-- Welcome Message -->
@@ -886,7 +896,7 @@
 		<property name="endDate" value="2018/02/04 10:46" />
 		<property name="applications">
 			<list>
-				
+				<ref bean="application2"/>
 			</list>
 		</property>
 		<property name="category" ref="category1" />
@@ -914,7 +924,7 @@
 		<property name="endDate" value="2018/02/05 10:46" />
 		<property name="applications">
 			<list>
-			<ref bean="application1"/>
+				<ref bean="application1"/>
 			</list>
 		</property>
 		<property name="category" ref="category2" />
@@ -958,7 +968,7 @@
 
 	<bean id="application0" class="domain.Application">
 		<property name="applicationMoment" value="2018/01/10 8:30" />
-		<property name="status" value="PENDING" />
+		<property name="status" value="ACCEPTED" />
 		<property name="offeredPrice" value="20.0" />
 		<property name="comments">
 			<list></list>
@@ -976,6 +986,17 @@
 		</property>
 		<property name="creditCard" ref="creditCard2" />
 		<property name="fixUpTask" ref="fixUpTask3" />
+	</bean>
+	
+	<bean id="application2" class="domain.Application">
+		<property name="applicationMoment" value="2018/01/10 8:36" />
+		<property name="status" value="REJECTED" />
+		<property name="offeredPrice" value="30.0" />
+		<property name="comments">
+			<list></list>
+		</property>
+		<property name="creditCard" ref="creditCard3" />
+		<property name="fixUpTask" ref="fixUpTask1" />
 	</bean>
 
 	<!-- Finder -->
