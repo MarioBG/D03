@@ -518,7 +518,7 @@
 	<!-- Curriculums -->
 
 	<bean id="curriculum0" class="domain.Curriculum">
-		<property name="ticker" value="“980317-012345" />
+		<property name="ticker" value="980317-012345" />
 		<property name="personalRecord" ref="personal_record0" />
 		<property name="miscellaneousRecords">
 			<list>

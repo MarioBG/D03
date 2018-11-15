@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -21,7 +22,7 @@ public class Curriculum extends DomainEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	//@Pattern(regexp = "^[0-9]{6}\\-[A-Z0-9]{6}$")
+	@Pattern(regexp = "^\\d{6}-[A-Z0-9]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}
