@@ -51,7 +51,7 @@
 		<property name="cVV" value="666">
 		</property>
 	</bean>
-	
+
 	<bean id="creditCard4" class="domain.CreditCard">
 		<property name="holderName" value="holderName4" />
 		<property name="brandName" value="brandName4" />
@@ -61,7 +61,7 @@
 		<property name="cVV" value="777">
 		</property>
 	</bean>
-	
+
 	<bean id="creditCard5" class="domain.CreditCard">
 		<property name="holderName" value="holderName5" />
 		<property name="brandName" value="brandName5" />
@@ -69,6 +69,26 @@
 		<property name="expirationMonth" value="08" />
 		<property name="expirationYear" value="22" />
 		<property name="cVV" value="555">
+		</property>
+	</bean>
+
+	<bean id="creditCard6" class="domain.CreditCard">
+		<property name="holderName" value="holderName6" />
+		<property name="brandName" value="brandName6" />
+		<property name="number" value="4560272346125669" />
+		<property name="expirationMonth" value="08" />
+		<property name="expirationYear" value="22" />
+		<property name="cVV" value="565">
+		</property>
+	</bean>
+
+	<bean id="creditCard7" class="domain.CreditCard">
+		<property name="holderName" value="holderName7" />
+		<property name="brandName" value="brandName7" />
+		<property name="number" value="4560272374126569" />
+		<property name="expirationMonth" value="08" />
+		<property name="expirationYear" value="22" />
+		<property name="cVV" value="557">
 		</property>
 	</bean>
 
@@ -686,9 +706,37 @@
 				<value>https://www.sample.com</value>
 			</list>
 		</property>
-		<property name="customer" ref="customer0">
+		<property name="customer" ref="customer1">
 		</property>
 	</bean>
+	
+	<bean id="complaint4" class="domain.Complaint">
+		<property name="ticker" value="918137-123456" />
+		<property name="moment" value="2018/11/12 11:39" />
+		<property name="description" value="description4" />
+		<property name="attachments">
+			<list>
+				<value>https://www.sample.com</value>
+			</list>
+		</property>
+		<property name="customer" ref="customer1">
+		</property>
+	</bean>
+	
+	<bean id="complaint5" class="domain.Complaint">
+		<property name="ticker" value="981314-123654" />
+		<property name="moment" value="2018/11/13 11:39" />
+		<property name="description" value="description5" />
+		<property name="attachments">
+			<list>
+				<value>https://www.sample.com</value>
+			</list>
+		</property>
+		<property name="customer" ref="customer3">
+		</property>
+	</bean>
+	
+	
 
 	<!-- Reports -->
 
@@ -721,6 +769,8 @@
 		<property name="complaints">
 			<list>
 				<ref bean="complaint1" />
+				<ref bean="complaint4" />
+				<ref bean="complaint5" />
 			</list>
 		</property>
 		<property name="notes">
@@ -947,6 +997,7 @@
 			<list>
 				<ref bean="application1" />
 				<ref bean="application4" />
+				<ref bean="application6" />
 			</list>
 		</property>
 		<property name="category" ref="category2" />
@@ -972,6 +1023,7 @@
 		<property name="endDate" value="2018/02/05 10:48" />
 		<property name="applications">
 			<list>
+				<ref bean="application5" />
 			</list>
 		</property>
 		<property name="category" ref="category2" />
@@ -1023,7 +1075,7 @@
 		<property name="fixUpTask" ref="fixUpTask1" />
 		<property name="handyWorker" ref="handyWorker2" />
 	</bean>
-	
+
 	<bean id="application3" class="domain.Application">
 		<property name="applicationMoment" value="2018/01/11 8:36" />
 		<property name="status" value="ACCEPTED" />
@@ -1035,7 +1087,7 @@
 		<property name="fixUpTask" ref="fixUpTask1" />
 		<property name="handyWorker" ref="handyWorker2" />
 	</bean>
-	
+
 	<bean id="application4" class="domain.Application">
 		<property name="applicationMoment" value="2018/01/12 8:36" />
 		<property name="status" value="ACCEPTED" />
@@ -1046,6 +1098,30 @@
 		<property name="creditCard" ref="creditCard5" />
 		<property name="fixUpTask" ref="fixUpTask2" />
 		<property name="handyWorker" ref="handyWorker2" />
+	</bean>
+	
+	<bean id="application5" class="domain.Application">
+		<property name="applicationMoment" value="2018/01/12 8:37" />
+		<property name="status" value="ACCEPTED" />
+		<property name="offeredPrice" value="15.0" />
+		<property name="comments">
+			<list></list>
+		</property>
+		<property name="creditCard" ref="creditCard6" />
+		<property name="fixUpTask" ref="fixUpTask3" />
+		<property name="handyWorker" ref="handyWorker0" />
+	</bean>
+	
+	<bean id="application6" class="domain.Application">
+		<property name="applicationMoment" value="2018/01/13 8:36" />
+		<property name="status" value="ACCEPTED" />
+		<property name="offeredPrice" value="50.0" />
+		<property name="comments">
+			<list></list>
+		</property>
+		<property name="creditCard" ref="creditCard7" />
+		<property name="fixUpTask" ref="fixUpTask2" />
+		<property name="handyWorker" ref="handyWorker1" />
 	</bean>
 
 
@@ -1357,6 +1433,7 @@
 		<property name="applications">
 			<list>
 				<ref bean="application0" />
+				<ref bean="application5" />
 			</list>
 		</property>
 		<property name="tutorials">
@@ -1392,6 +1469,7 @@
 		<property name="applications">
 			<list>
 				<ref bean="application1" />
+				<ref bean="application6" />
 			</list>
 		</property>
 		<property name="tutorials">
